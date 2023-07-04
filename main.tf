@@ -40,15 +40,15 @@ variable "location" {}
 # Variables lb
 
 variable "type" {}
+variable "name_lb" {}
 variable "frontend_name" {}
 variable "frontend_subnet_id" {}
 variable "frontend_private_ip_address_allocation" {}
 variable "frontend_private_ip_address" {}
+variable "edge_zone" {}
 variable "lb_sku" {}
-variable "name_lb" {}
-variable "remote_port" {}
-variable "lb_port" {}
-variable "lb_probe" {}
+variable "sku_tier" {}
+
 
 
 # Variables tags
@@ -61,6 +61,7 @@ module "resource-group" {
 
   resource_group_name = var.resource_group_name
   location = var.location
+
   tags = var.tags
 }
 
@@ -68,23 +69,17 @@ module "resource-group" {
 module "mylb" {
   source                                 = "git@github.com:ragalgut/az-tf-module-load-balancer.git"
 
-  resource_group_name                    = var.resource_group_name
   type                                   = var.type
+  name_lb                                = var.name_lb
+  resource_group_name                    = var.resource_group_name
   frontend_name                          = var.frontend_name
   frontend_subnet_id                     = var.frontend_subnet_id
   frontend_private_ip_address_allocation = var.frontend_private_ip_address_allocation
   frontend_private_ip_address            = var.frontend_private_ip_address
+  edge_zone                              = var.edge_zone
   lb_sku                                 = var.lb_sku
+  sku_tier                               = var.lb_sku_tier
   location                               = var.location
-  name_lb                                = var.name_lb
-
-  remote_port = var.remote_port
-
-  lb_port = var.lb_port
-
-  lb_probe = var.lb_probe
 
   tags = var.tags
-
-  #depends_on = [azurerm_resource_group.test]
 }
