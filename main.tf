@@ -40,6 +40,7 @@ variable "location" {}
 # Variables lb
 
 variable "type" {}
+variable "frontend_name" {}
 variable "frontend_subnet_id" {}
 variable "frontend_private_ip_address_allocation" {}
 variable "frontend_private_ip_address" {}
@@ -69,6 +70,7 @@ module "mylb" {
 
   resource_group_name                    = var.resource_group_name
   type                                   = var.type
+  frontend_name                          = var.frontend_name
   frontend_subnet_id                     = var.frontend_subnet_id
   frontend_private_ip_address_allocation = var.frontend_private_ip_address_allocation
   frontend_private_ip_address            = var.frontend_private_ip_address
