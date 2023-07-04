@@ -45,9 +45,7 @@ variable "frontend_name" {}
 variable "frontend_subnet_id" {}
 variable "frontend_private_ip_address_allocation" {}
 variable "frontend_private_ip_address" {}
-variable "edge_zone" {}
 variable "lb_sku" {}
-variable "sku_tier" {}
 
 
 
@@ -76,9 +74,7 @@ module "mylb" {
   frontend_subnet_id                     = var.frontend_subnet_id
   frontend_private_ip_address_allocation = var.frontend_private_ip_address_allocation
   frontend_private_ip_address            = var.frontend_private_ip_address
-  edge_zone                              = var.edge_zone
   lb_sku                                 = var.lb_sku
-  sku_tier                               = var.lb_sku_tier
   location                               = var.location
 
   tags = var.tags
