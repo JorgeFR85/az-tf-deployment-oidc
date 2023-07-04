@@ -12,21 +12,6 @@ frontend_private_ip_address_allocation = "static"
 frontend_private_ip_address = "10.0.0.7"
 lb_sku = "Standard"
 
-remote_port = {
-  ssh = ["Tcp", "22"]
-}
-
-lb_port = {
-  http  = ["80", "Tcp", "80"]
-   https = ["443", "Tcp", "443"]
-}
-
-lb_probe = {
-  http  = ["Tcp", "80", ""]
-  http2 = ["Http", "1443", "/"]
-}
-
-
 tags = {
   "test5" = "test6"
 }
