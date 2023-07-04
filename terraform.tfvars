@@ -11,8 +11,6 @@ frontend_subnet_id = "/subscriptions/4c595a39-ef54-4e5c-af06-8ffd1963ac5e/resour
 frontend_private_ip_address_allocation = "static"
 frontend_private_ip_address = "10.0.0.7"
 lb_sku = "Standard"
-sku_tier = ""
-edge_zone = ""
 
 remote_port = {
   ssh = ["Tcp", "22"]
