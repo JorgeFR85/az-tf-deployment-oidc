@@ -67,6 +67,7 @@ module "resource-group" {
 module "mylb" {
   source                                 = "git@github.com:ragalgut/az-tf-module-load-balancer.git"
 
+  resource_group_name                    = var.resource_group_name
   type                                   = var.type
   frontend_subnet_id                     = var.frontend_subnet_id
   frontend_private_ip_address_allocation = var.frontend_private_ip_address_allocation
