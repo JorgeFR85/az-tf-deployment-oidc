@@ -74,7 +74,7 @@ module "mylb" {
   frontend_private_ip_address            = var.frontend_private_ip_address
   lb_sku                                 = var.lb_sku
   location                               = var.location
-  name                                   = var.name_lb
+  name_lb                                = var.name_lb
 
   remote_port = var.remote_port
 
