@@ -15,3 +15,6 @@ lb_sku = "Standard"
 tags = {
   "test5" = "test6"
 }
+
+# Variables lb-backend-address-pool
+name_BackEndAddressPool = testbackendaddress

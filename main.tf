@@ -47,6 +47,10 @@ variable "frontend_private_ip_address_allocation" {}
 variable "frontend_private_ip_address" {}
 variable "lb_sku" {}
 
+# Variables lb-backend-address-pool
+
+variable "name_BackEndAddressPool" {}
+
 
 
 # Variables tags
@@ -78,4 +82,12 @@ module "mylb" {
   location                               = var.location
 
   tags = var.tags
+}
+
+module "mylb" {
+  source                                 = "git@github.com:ragalgut/az-tf-module-lb-backend-address-pool.git"
+
+  loadbalancer_id                    = module.mylb.id
+  name_BackEndAddressPool            = var.name_BackEndAddressPool
+
 }
