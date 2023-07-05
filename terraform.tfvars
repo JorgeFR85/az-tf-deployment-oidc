@@ -17,4 +17,4 @@ tags = {
 }
 
 # Variables lb-backend-address-pool
-name_BackEndAddressPool = testbackendaddress
+name_BackEndAddressPool = "testbackendaddress"
