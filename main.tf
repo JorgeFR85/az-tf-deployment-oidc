@@ -84,7 +84,7 @@ module "mylb" {
   tags = var.tags
 }
 
-module "mylb" {
+module "mylb-ackend-address-pool" {
   source                                 = "git@github.com:ragalgut/az-tf-module-lb-backend-address-pool.git"
 
   loadbalancer_id                    = module.mylb.id
