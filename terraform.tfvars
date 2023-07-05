@@ -18,3 +18,12 @@ tags = {
 
 # Variables lb-backend-address-pool
 name_BackEndAddressPool = "testbackendaddress"
+
+# Variables lb-nat-rule
+
+name_lb_nat_rule = "testnatrule"
+protocol_lb_nat_rule = "Tcp"
+frontend_port = "3389"
+backend_port = "3389"
+frontend_ip_configuration_name = "testnamefront"
+

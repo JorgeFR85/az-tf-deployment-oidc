@@ -51,7 +51,14 @@ variable "lb_sku" {}
 
 variable "name_BackEndAddressPool" {}
 
+# Variables lb-nat-rule
 
+
+variable "backend_port" {}
+variable "frontend_ip_configuration_name" {}
+variable "name_lb_nat_rule" {}
+variable "protocol_lb_nat_rule" {}
+variable "frontend_port" {}
 
 # Variables tags
 variable "tags" {}
@@ -84,10 +91,23 @@ module "mylb" {
   tags = var.tags
 }
 
-module "mylb-ackend-address-pool" {
+module "mylb-backend-address-pool" {
   source                                 = "git@github.com:ragalgut/az-tf-module-lb-backend-address-pool.git"
 
   loadbalancer_id                    = module.mylb.azurerm_lb_id
   name_BackEndAddressPool            = var.name_BackEndAddressPool
+
+}
+
+module "mylb-nat-rule" {
+  source                                 = "git@github.com:ragalgut/az-tf-module-lb-nat-rule.git"
+
+  backend_port                      = var.backend_port
+  frontend_ip_configuration_name    = var.frontend_ip_configuration_name
+  loadbalancer_id                   = module.mylb.azurerm_lb_id 
+  name_lb_nat_rule                  = var.name_lb_nat_rule
+  protocol_lb_nat_rule              = var.protocol_lb_nat_rule
+  resource_group_name               = var.resource_group_name
+  frontend_port                     = var.frontend_port
 
 }
