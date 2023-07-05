@@ -87,7 +87,7 @@ module "mylb" {
 module "mylb-ackend-address-pool" {
   source                                 = "git@github.com:ragalgut/az-tf-module-lb-backend-address-pool.git"
 
-  loadbalancer_id                    = module.azlb.id
+  loadbalancer_id                    = module.mylb.azurerm_lb_id
   name_BackEndAddressPool            = var.name_BackEndAddressPool
 
 }
