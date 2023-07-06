@@ -60,6 +60,26 @@ variable "name_lb_nat_rule" {}
 variable "protocol_lb_nat_rule" {}
 variable "frontend_port" {}
 
+# Variables lb-probe
+
+variable "name_probe" {}
+variable "port_probe" {}
+variable "lb_probe_interval" {}
+variable "lb_probe_unhealthy_threshold" {}
+variable "protocol_probe" {}
+variable "request_path" {}
+
+# Variables lb-rule
+
+variable "backend_port_lb_rule" {}
+variable "frontend_name_lb_rule" {}
+variable "frontend_port_lb_rule" {}
+variable "name_lb_rule" {}
+variable "protocol_lb_rule" {}
+variable "disable_outbound_snat" {}
+variable "lb_floating_ip_enabled" {}
+variable "idle_timeout_in_minutes" {}
+
 # Variables tags
 variable "tags" {}
 
