@@ -154,7 +154,7 @@ module "mylb-rule" {
   loadbalancer_id                     = module.mylb.azurerm_lb_id 
   name_lb_rule                        = var.name_lb_rule
   protocol_lb_rule                    = var.protocol_lb_rule
-  backend_address_pool_ids            = module.mylb-backend-address-pool.id
+  backend_address_pool_ids            = module.mylb-backend-address-pool.ids
   disable_outbound_snat               = var.disable_outbound_snat 
   lb_floating_ip_enabled              = var.lb_floating_ip_enabled
   idle_timeout_in_minutes             = var.idle_timeout_in_minutes
