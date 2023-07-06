@@ -33,7 +33,7 @@ name_probe = "ssh-running-probe"
 port_probe = "22"
 lb_probe_interval = "5"
 lb_probe_unhealthy_threshold = "1"
-protocol_probe = "https"
+protocol_probe = "Https"
 request_path = "/"
 
 
