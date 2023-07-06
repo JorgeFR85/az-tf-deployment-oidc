@@ -111,3 +111,33 @@ module "mylb-nat-rule" {
   frontend_port                     = var.frontend_port
 
 }
+
+module "mylb-probe" {
+  source                                 = "git@github.com:ragalgut/az-tf-module-lb-probe.git"
+
+  loadbalancer_id                     = module.mylb.azurerm_lb_id 
+  name_probe                          = var.name_probe
+  port_probe                          = var.port_probe
+  lb_probe_interval                   = var.lb_probe_interval
+  lb_probe_unhealthy_threshold        = var.lb_probe_unhealthy_threshold
+  protocol_probe                      = var.protocol_probe
+  request_path                        = var.request_path
+
+}
+
+module "mylb-rule" {
+  source                                 = "git@github.com:ragalgut/az-tf-module-lb-rule.git"
+
+  backend_port_lb_rule                = var.backend_port_lb_rule
+  frontend_name_lb_rule               = var.frontend_name_lb_rule
+  frontend_port_lb_rule               = var.frontend_port_lb_rule 
+  loadbalancer_id                     = module.mylb.azurerm_lb_id 
+  name_lb_rule                        = var.name_lb_rule
+  protocol_lb_rule                    = var.protocol_lb_rule
+  backend_address_pool_ids            = module.mylb-backend-address-pool.id
+  disable_outbound_snat               = var.disable_outbound_snat 
+  lb_floating_ip_enabled              = var.lb_floating_ip_enabled
+  idle_timeout_in_minutes             = var.idle_timeout_in_minutes
+  probe_id                            = module.mylb-probe.id
+
+}

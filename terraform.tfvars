@@ -27,3 +27,23 @@ frontend_port = "3389"
 backend_port = "3389"
 frontend_ip_configuration_name = "testnamefront"
 
+# Variables mylb-probe
+
+name_probe = "ssh-running-probe"
+port_probe = "22"
+lb_probe_interval = "5"
+lb_probe_unhealthy_threshold = "1"
+protocol_probe = "https"
+request_path = "/"
+
+
+# Variables mylb-rule
+
+backend_port_lb_rule = "3389"
+frontend_name_lb_rule = "testnamefront"
+frontend_port_lb_rule = "3389" 
+name_lb_rule = "testnamelbrule"
+protocol_lb_rule = "Tcp"
+disable_outbound_snat = "false" 
+lb_floating_ip_enabled = "false"
+idle_timeout_in_minutes = "4"
