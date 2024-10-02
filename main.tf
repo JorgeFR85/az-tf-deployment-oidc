@@ -5,7 +5,7 @@ provider "azurerm" {
 
 provider "azuread" {
   use_oidc = true
-  features {}
+
 }
 
 terraform {
@@ -25,11 +25,12 @@ terraform {
   
 
   backend "azurerm" {
-    resource_group_name = "lab-rg"            # Nombre del grupo de recursos donde se encuentra la cuenta de almacenamiento
-    storage_account_name = "labaztfbackend"  # Nombre de la cuenta de almacenamiento donde se va almacenar el fichero de estado
-    container_name = "tbackend"                   # Nombre del container donde se va almacenar el fichero de estado
-    key = "terraform.tfstate"                     # Nombre del fichero de estado. El nombre estándar es terraform.tfstate
+    resource_group_name = "rg-pro-infra-weu-01"            # Nombre del grupo de recursos donde se encuentra la cuenta de almacenamiento
+    storage_account_name = "stproinfraweu01"               # Nombre de la cuenta de almacenamiento donde se va almacenar el fichero de estado
+    container_name = "terraform"                           # Nombre del container donde se va almacenar el fichero de estado
+    key = "terraform.tfstate"                              # Nombre del fichero de estado. El nombre estándar es terraform.tfstate
   }
+  
   
 }
 
